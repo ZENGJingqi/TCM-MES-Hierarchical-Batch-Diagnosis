@@ -1,0 +1,44 @@
+# Confidential or generated data
+data/*
+!data/README.md
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+*.tsv
+*.rds
+*.RData
+*.Rhistory
+
+# Generated manuscript and figure outputs
+outputs/*
+!outputs/.gitkeep
+figures/
+tables/
+docs/*.docx
+*.docx
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.pptx
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# R
+.Rproj.user/
+renv/library/
+renv/staging/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
