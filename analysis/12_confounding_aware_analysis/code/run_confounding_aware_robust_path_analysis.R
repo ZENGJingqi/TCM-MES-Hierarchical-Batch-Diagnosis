@@ -176,10 +176,10 @@ bootstrap_batch_glm <- function(data, formula, terms, label_map, layer, n_boot =
 
 result_path <- file.path(tables_dir, "因果批次分解_第一版结果.xlsx")
 if (!file.exists(result_path)) {
-  stop("Run run_causal_batch_decomposition.R before this robust path analysis.")
+  stop("Run run_confounding_aware_batch_decomposition.R before this robust path analysis.")
 }
 
-causal_finished_matrix <- read_xlsx(result_path, sheet = "causal_finished_matrix")
+confounding_finished_matrix <- read_xlsx(result_path, sheet = "confounding_finished_matrix")
 extract_batch_summary <- read_xlsx(result_path, sheet = "extract_batch_summary")
 chenpi_batch_summary <- read_xlsx(result_path, sheet = "chenpi_batch_summary")
 yam_batch_summary <- read_xlsx(result_path, sheet = "yam_batch_summary")
@@ -269,7 +269,7 @@ bootstrap_effects <- bind_rows(
     )
   )
 
-path_data <- causal_finished_matrix |>
+path_data <- confounding_finished_matrix |>
   filter(!is.na(chenpi_origin_pattern)) |>
   mutate(
     disintegration_issue = as.integer(disintegration_issue),
@@ -497,7 +497,7 @@ doc <- body_add_flextable(doc, flextable(source_path) |> fontsize(size = 8, part
 doc <- body_add_par(doc, "路径模型性能", style = "heading 2")
 doc <- body_add_flextable(doc, flextable(path_performance) |> fontsize(size = 8, part = "all") |> autofit())
 doc <- body_add_par(doc, "论文写法边界", style = "heading 2")
-doc <- body_add_par(doc, "这部分应写作 causal-informed path decomposition，而不是 randomized causal inference。若来源效应在加入质量和 MES 后明显衰减，应表述为来源相关差异可能通过原料质量、中间体质量和成品过程路径传递。", style = "Normal")
+doc <- body_add_par(doc, "这部分应写作 confounding-aware path decomposition，而不是 randomized causal inference。若来源效应在加入质量和 MES 后明显衰减，应表述为来源相关差异可能通过原料质量、中间体质量和成品过程路径传递。", style = "Normal")
 print(doc, target = file.path(docs_dir, "因果稳健性与路径衰减分析说明.docx"))
 
-message("Robust causal path analysis completed.")
+message("Robust confounding-aware path analysis completed.")

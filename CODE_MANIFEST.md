@@ -24,13 +24,13 @@
 
 - `analysis/10_joint_modeling/code/run_joint_disintegration_modeling.R`: builds hierarchical diagnostic models.
 - `analysis/10_joint_modeling/code/audit_time_and_origin_design_inputs.R`: audits temporal/origin variables for later sensitivity analysis.
-- `analysis/10_joint_modeling/code/audit_causal_batch_structure.R`: audits upstream-downstream batch multiplicity and causal-analysis feasibility.
+- `analysis/10_joint_modeling/code/audit_confounding_batch_structure.R`: audits upstream-downstream batch multiplicity and confounding-aware analysis feasibility.
 
-## Temporal and causal-informed analysis
+## Temporal and confounding-aware analysis
 
 - `analysis/11_temporal_analysis/code/run_finished_disintegration_time_series.R`: analyzes monthly disintegration patterns and abnormal temporal windows.
-- `analysis/12_causal_informed_analysis/code/run_causal_batch_decomposition.R`: decomposes batch-level evidence under temporal-window exposure.
-- `analysis/12_causal_informed_analysis/code/run_causal_robust_path_analysis.R`: performs causal-informed robustness and path-attenuation analysis.
+- `analysis/12_confounding_aware_analysis/code/run_confounding_aware_batch_decomposition.R`: decomposes batch-level evidence under temporal-window exposure.
+- `analysis/12_confounding_aware_analysis/code/run_confounding_aware_robust_path_analysis.R`: performs confounding-aware robustness and path-attenuation analysis.
 
 ## Graph evidence scoring
 

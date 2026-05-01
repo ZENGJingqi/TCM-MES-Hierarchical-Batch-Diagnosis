@@ -67,14 +67,14 @@ robust_z <- function(x) {
 
 format_pct <- function(x, digits = 1) sprintf(paste0("%.", digits, "f%%"), 100 * x)
 
-causal_dir <- file.path(project_dir, "因果建模_成品崩解问题")
-causal_file <- file.path(causal_dir, "tables", "因果批次分解_第一版结果.xlsx")
-robust_file <- file.path(causal_dir, "tables", "因果稳健性与路径衰减分析.xlsx")
+confounding_dir <- file.path(project_dir, "因果建模_成品崩解问题")
+confounding_file <- file.path(confounding_dir, "tables", "因果批次分解_第一版结果.xlsx")
+robust_file <- file.path(confounding_dir, "tables", "因果稳健性与路径衰减分析.xlsx")
 
-finished_matrix <- read_xlsx(causal_file, sheet = "causal_finished_matrix")
-extract_batch <- read_xlsx(causal_file, sheet = "extract_batch_summary")
-chenpi_batch <- read_xlsx(causal_file, sheet = "chenpi_batch_summary")
-yam_batch <- read_xlsx(causal_file, sheet = "yam_batch_summary")
+finished_matrix <- read_xlsx(confounding_file, sheet = "confounding_finished_matrix")
+extract_batch <- read_xlsx(confounding_file, sheet = "extract_batch_summary")
+chenpi_batch <- read_xlsx(confounding_file, sheet = "chenpi_batch_summary")
+yam_batch <- read_xlsx(confounding_file, sheet = "yam_batch_summary")
 bootstrap_effects <- read_xlsx(robust_file, sheet = "bootstrap_batch_effects")
 
 finished_rates <- finished_matrix |>

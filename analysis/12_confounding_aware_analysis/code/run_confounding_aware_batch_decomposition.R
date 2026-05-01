@@ -324,7 +324,7 @@ joint_matrix <- read_xlsx(file.path(joint_dir, "tables", "joint_disintegration_m
     disintegration_issue = as.logical(disintegration_issue)
   )
 
-causal_finished_matrix <- joint_matrix |>
+confounding_finished_matrix <- joint_matrix |>
   select(
     finished_batch, production_date, production_month, abnormal_window,
     disintegration_time_min, disintegration_issue,
@@ -397,7 +397,7 @@ batch_multiplicity_summary <- bind_rows(
     .groups = "drop"
   )
 
-origin_balance <- causal_finished_matrix |>
+origin_balance <- confounding_finished_matrix |>
   filter(!is.na(chenpi_origin_pattern)) |>
   group_by(chenpi_origin_pattern) |>
   summarise(
@@ -413,7 +413,7 @@ origin_balance <- causal_finished_matrix |>
     .groups = "drop"
   )
 
-source_balance_yam <- causal_finished_matrix |>
+source_balance_yam <- confounding_finished_matrix |>
   filter(!is.na(yam_supplier_pattern)) |>
   group_by(yam_supplier_pattern) |>
   summarise(
@@ -508,7 +508,7 @@ batch_level_effects <- bind_rows(extract_or, chenpi_or, yam_or) |>
     ci_high = if_else(is.infinite(ci_high), NA_real_, ci_high)
   )
 
-path_model_df <- causal_finished_matrix |>
+path_model_df <- confounding_finished_matrix |>
   mutate(
     disintegration_issue = as.integer(disintegration_issue),
     abnormal_window = as.integer(abnormal_window),
@@ -583,11 +583,11 @@ path_perf_plot <- ggplot(path_perf_plot_df, aes(x = value, y = model, fill = met
   scale_x_continuous(expand = expansion(mult = c(0, 0.18))) +
   labs(x = "Model performance", y = NULL) +
   theme(axis.text.y = element_text(size = 15), axis.text.x = element_text(size = 15))
-save_plot_dual(path_perf_plot, "03_causal_path_model_performance", 10.4, 8.8)
+save_plot_dual(path_perf_plot, "03_confounding_aware_path_model_performance", 10.4, 8.8)
 
 write.xlsx(
   list(
-    causal_finished_matrix = causal_finished_matrix,
+    confounding_finished_matrix = confounding_finished_matrix,
     batch_multiplicity_summary = batch_multiplicity_summary,
     chenpi_origin_balance = origin_balance,
     yam_supplier_balance = source_balance_yam,
@@ -611,7 +611,7 @@ md_lines <- c(
   "",
   "## 因果建模定位",
   "",
-  "本阶段不是直接证明随机因果，而是进行 causal-informed hierarchical batch-effect decomposition。核心思想是利用一批上游物料对应多批下游成品的追溯结构，区分上游批次效应、时间窗口效应和成品 MES 近端过程效应。",
+  "本阶段不是直接证明随机因果，而是进行 confounding-aware hierarchical batch-effect decomposition。核心思想是利用一批上游物料对应多批下游成品的追溯结构，区分上游批次效应、时间窗口效应和成品 MES 近端过程效应。",
   "",
   "## 批次网络结构",
   "",
@@ -634,7 +634,7 @@ writeLines(md_lines, file.path(docs_dir, "因果批次分解_第一版结果说�
 
 doc <- read_docx()
 doc <- body_add_par(doc, "因果批次分解第一版结果", style = "heading 1")
-doc <- body_add_par(doc, "本阶段进行 causal-informed hierarchical batch-effect decomposition，重点利用一批上游物料对应多批下游成品的追溯结构，区分上游批次效应、时间窗口效应和成品 MES 近端过程效应。", style = "Normal")
+doc <- body_add_par(doc, "本阶段进行 confounding-aware hierarchical batch-effect decomposition，重点利用一批上游物料对应多批下游成品的追溯结构，区分上游批次效应、时间窗口效应和成品 MES 近端过程效应。", style = "Normal")
 doc <- body_add_par(doc, "批次网络结构", style = "heading 2")
 doc <- body_add_flextable(doc, flextable(batch_multiplicity_summary) |> fontsize(size = 8, part = "all") |> autofit())
 doc <- body_add_par(doc, "陈皮产地/来源平衡", style = "heading 2")
@@ -649,4 +649,4 @@ doc <- body_add_par(doc, "解释边界", style = "heading 2")
 doc <- body_add_par(doc, "本结果不能直接写成随机因果结论。当前最稳妥的论文表达是：在控制异常时间窗后，利用批次追溯网络进行因果启发式路径分解，识别上游批次、原料来源、中间体质量和成品 MES 近端过程对崩解异常的相对贡献。", style = "Normal")
 print(doc, target = file.path(docs_dir, "因果批次分解_第一版结果说明.docx"))
 
-message("Causal-informed batch decomposition completed.")
+message("Confounding-aware batch decomposition completed.")

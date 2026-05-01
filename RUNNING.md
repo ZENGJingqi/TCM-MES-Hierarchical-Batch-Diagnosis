@@ -23,7 +23,7 @@ The original project used local Chinese and English analysis-ready data folders.
 9. `analysis/08_yam_powder_association`
 10. `analysis/10_joint_modeling`
 11. `analysis/11_temporal_analysis`
-12. `analysis/12_causal_informed_analysis`
+12. `analysis/12_confounding_aware_analysis`
 13. `analysis/13_graph_evidence_scoring`
 
 ## Notes

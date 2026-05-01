@@ -16,7 +16,7 @@ The workflow starts from a finished-product quality issue, links downstream qual
 
 Included:
 
-- Analysis scripts for dataset overview, layer-wise description, association screening, hierarchical modeling, temporal analysis, causal-informed decomposition, and graph-based evidence scoring.
+- Analysis scripts for dataset overview, layer-wise description, association screening, hierarchical modeling, temporal analysis, confounding-aware decomposition, and graph-based evidence scoring.
 - A public framework diagram that explains the analytical design.
 
 Not included:
@@ -40,7 +40,7 @@ Not included:
 - `analysis/08_yam_powder_association`: Chinese yam powder MES and downstream issue-linkage scripts.
 - `analysis/10_joint_modeling`: hierarchical joint-modeling and robustness scripts.
 - `analysis/11_temporal_analysis`: temporal-pattern and abnormal-window assessment scripts.
-- `analysis/12_causal_informed_analysis`: causal-informed path-decomposition scripts.
+- `analysis/12_confounding_aware_analysis`: confounding-aware path-decomposition scripts.
 - `analysis/13_graph_evidence_scoring`: graph-based batch evidence scoring scripts.
 - `assets/framework_design.svg`: public framework-design figure.
 - `data/README.md`: local data placement and confidentiality note.
@@ -67,7 +67,7 @@ The analysis is organized around an issue-driven diagnostic logic:
 - Elastic-net hierarchical diagnostic modeling.
 - XGBoost-SHAP nonlinear sensitivity analysis.
 - Temporal-window analysis and blocked validation.
-- Causal-informed path decomposition.
+- Confounding-aware path decomposition.
 - Bootstrap batch-level robustness checks.
 - Graph-based batch evidence scoring.
 
