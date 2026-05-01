@@ -47,5 +47,10 @@
 
 - `analysis/14_framework_figures/code/build_framework_and_evidence_chain_figures_v3.R`: creates the framework and final evidence-chain figures used in the manuscript design.
 - `analysis/14_framework_figures/code/build_paper_evidence_chain_package.R`: creates paper-level evidence-chain support outputs.
-- `manuscript/code/create_full_submission_design_docx.py`: assembles the manuscript design document with key figures and support material structure.
+- `manuscript/code/create_full_submission_design_docx.py`: assembles a manuscript-support design document with key figures and support-material structure.
 - `manuscript/code/create_supplementary_table_s2.py`: creates the layer-wise batch-linkage supplementary table.
+- `manuscript/code/enhance_manuscript_0426.py`: retained as a public placeholder explaining that result-filled manuscript drafting code is not distributed.
+
+## Public-release boundary
+
+This repository intentionally excludes raw data, standardized analysis-ready data, generated result workbooks, manuscript drafts, and confidential batch-level outputs. The code documents the analysis workflow and public framework design. Users need authorized local datasets to reproduce the full analysis.

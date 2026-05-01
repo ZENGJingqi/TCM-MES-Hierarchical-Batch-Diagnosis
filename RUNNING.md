@@ -1,18 +1,14 @@
 # Running the analysis
 
-This repository is a code-only release. It is intended to document and reproduce the analysis workflow when the confidential analysis-ready datasets are available locally.
+This repository is a code-only release. It documents the analysis workflow and can be rerun only when authorized analysis-ready datasets are available locally.
 
 ## Local data folders
 
-The original scripts were run from the project root and typically used these local folders:
+The original project used local Chinese and English analysis-ready data folders. These folders are intentionally not included. To rerun the scripts:
 
-- `定稿数据_英文`
-- `定稿数据_中文`
-
-These folders are intentionally not included. To rerun the scripts, either:
-
-1. Recreate these folders locally with the analysis-ready data files, or
-2. Edit the input path variables near the top of each script to point to your local data location.
+1. Prepare authorized local datasets for the five required data entities listed in `data/README.md`.
+2. Place the files in a local data directory outside the Git repository, or in `data/` while keeping them untracked.
+3. Edit the input path variables near the top of each script to point to your local data location.
 
 ## Suggested run order
 
@@ -35,7 +31,6 @@ These folders are intentionally not included. To rerun the scripts, either:
 
 ## Notes
 
-- R scripts generate figures and Excel summary tables in local output folders.
-- Python scripts generate dataset dictionaries, Word summaries, and manuscript-supporting documents.
-- Generated outputs are ignored by `.gitignore` and should not be committed unless a journal or reviewer specifically requests non-confidential derived artifacts.
-
+- R scripts generate figures and summary tables in local output folders.
+- Python scripts generate dataset dictionaries and manuscript-supporting tables or documents.
+- Generated outputs are ignored by `.gitignore` and should not be committed unless they are non-confidential derived artifacts approved for release.
