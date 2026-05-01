@@ -1,16 +1,14 @@
 # TCM-MES Hierarchical Batch Diagnosis
 
-Code repository for a manufacturing-execution-system (MES)-enabled hierarchical batch diagnosis framework for real-world traditional Chinese medicine (TCM) manufacturing.
+Analysis-code repository for a manufacturing-execution-system (MES)-enabled hierarchical batch diagnosis framework for real-world traditional Chinese medicine (TCM) manufacturing.
 
-This repository documents the analysis workflow used to organize quality-control records, MES production records, upstream material-quality records, process-material records, and batch-linkage information into an issue-driven diagnostic evidence chain. It is a code-only release. Raw and standardized manufacturing datasets are not included because they contain company-confidential production, quality-control, MES, and batch-traceability information.
+This repository documents the data-analysis and modeling workflow used to organize quality-control records, MES production records, upstream material-quality records, process-material records, and batch-linkage information into an issue-driven diagnostic evidence chain. It is a code-only release. Raw and standardized manufacturing datasets are not included because they contain company-confidential production, quality-control, MES, and batch-traceability information.
 
-> The associated manuscript is in preparation. Please do not cite this repository as a published study.
+> The associated study is in preparation. Please do not cite this repository as a published study.
 
 ## Framework overview
 
 The workflow starts from a finished-product quality issue, links downstream quality records to MES production batches, traces related records to upstream material and process-material layers, evaluates layer-wise evidence, adjusts for temporal-window effects, and generates graph-based upstream investigation priorities.
-
-![Dataset overview](assets/dataset_overview.svg)
 
 ![Framework design](assets/framework_design.svg)
 
@@ -19,15 +17,15 @@ The workflow starts from a finished-product quality issue, links downstream qual
 Included:
 
 - Analysis scripts for dataset overview, layer-wise description, association screening, hierarchical modeling, temporal analysis, causal-informed decomposition, and graph-based evidence scoring.
-- Manuscript-supporting code for framework figures and supplementary table generation.
-- Public visual summaries that show the data architecture and analysis framework.
+- A public framework diagram that explains the analytical design.
 
 Not included:
 
 - Raw manufacturing data.
 - Standardized analysis-ready datasets.
 - Company-confidential batch-level outputs.
-- Manuscript drafts or unpublished result tables.
+- Draft documents or unpublished result tables.
+- Document-generation utilities or writing-assistance materials.
 
 ## Repository structure
 
@@ -40,13 +38,11 @@ Not included:
 - `analysis/06_chenpi_description_and_association`: Chenpi quality, source-code comparison, and downstream-linkage scripts.
 - `analysis/07_yam_powder_description`: Chinese yam powder MES descriptive-analysis scripts.
 - `analysis/08_yam_powder_association`: Chinese yam powder MES and downstream issue-linkage scripts.
-- `analysis/09_issue_chain_summary`: integrated issue-chain summary scripts.
 - `analysis/10_joint_modeling`: hierarchical joint-modeling and robustness scripts.
 - `analysis/11_temporal_analysis`: temporal-pattern and abnormal-window assessment scripts.
 - `analysis/12_causal_informed_analysis`: causal-informed path-decomposition scripts.
 - `analysis/13_graph_evidence_scoring`: graph-based batch evidence scoring scripts.
-- `analysis/14_framework_figures`: framework and evidence-chain figure scripts.
-- `manuscript`: code utilities for manuscript-supporting documents and supplementary tables.
+- `assets/framework_design.svg`: public framework-design figure.
 - `data/README.md`: local data placement and confidentiality note.
 
 ## Analysis design
@@ -87,4 +83,4 @@ The scripts are designed as a transparent workflow template. Users with authoriz
 
 ## How to cite
 
-Citation information will be added after manuscript publication.
+Citation information will be added after study publication.

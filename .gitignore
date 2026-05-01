@@ -10,7 +10,7 @@ data/*
 *.RData
 *.Rhistory
 
-# Generated manuscript and figure outputs
+# Generated analysis and figure outputs
 outputs/*
 !outputs/.gitkeep
 figures/
@@ -41,4 +41,3 @@ renv/staging/
 Thumbs.db
 .idea/
 .vscode/
-

@@ -21,16 +21,14 @@ The original project used local Chinese and English analysis-ready data folders.
 7. `analysis/06_chenpi_description_and_association`
 8. `analysis/07_yam_powder_description`
 9. `analysis/08_yam_powder_association`
-10. `analysis/09_issue_chain_summary`
-11. `analysis/10_joint_modeling`
-12. `analysis/11_temporal_analysis`
-13. `analysis/12_causal_informed_analysis`
-14. `analysis/13_graph_evidence_scoring`
-15. `analysis/14_framework_figures`
-16. `manuscript`
+10. `analysis/10_joint_modeling`
+11. `analysis/11_temporal_analysis`
+12. `analysis/12_causal_informed_analysis`
+13. `analysis/13_graph_evidence_scoring`
 
 ## Notes
 
 - R scripts generate figures and summary tables in local output folders.
-- Python scripts generate dataset dictionaries and manuscript-supporting tables or documents.
+- Python scripts generate dataset dictionaries and analysis summaries.
 - Generated outputs are ignored by `.gitignore` and should not be committed unless they are non-confidential derived artifacts approved for release.
+- Draft-document assembly and writing-assistance scripts are intentionally not part of this public code release.
