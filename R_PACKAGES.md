@@ -1,27 +1,20 @@
-# R package requirements
+# R packages
 
-Install the following R packages before running the R analysis scripts:
+Current computational-source package imports (R 4.5.1 in the original local analyses):
 
-```r
-install.packages(c(
-  "readxl",
-  "openxlsx",
-  "dplyr",
-  "tidyr",
-  "stringr",
-  "lubridate",
-  "ggplot2",
-  "ggsci",
-  "scales",
-  "patchwork",
-  "pROC",
-  "glmnet",
-  "xgboost",
-  "officer",
-  "flextable",
-  "pdftools"
-))
-```
+- `dplyr`
+- `ggplot2`
+- `glmnet`
+- `lubridate`
+- `pROC`
+- `patchwork`
+- `pdftools`
+- `readr`
+- `readxl`
+- `rpart`
+- `scales`
+- `stringr`
+- `tidyr`
+- `xgboost`
 
-The base R `grid` package is also used.
-
+Versions are not pinned by this list. Inspect the authorized original run session information before exact reruns. Historical modules can require additional packages.

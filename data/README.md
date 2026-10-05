@@ -1,15 +1,3 @@
-# Data availability and local data placement
+# Data confidentiality
 
-No raw data or standardized manufacturing datasets are included in this repository.
-
-To rerun the code, place authorized analysis-ready files in a local data directory and update the input paths in the scripts. The workflow expects five manufacturing data entities:
-
-- Finished-product quality-testing records.
-- Finished-product MES production records.
-- Jianwei Xiaoshi extract-powder quality-testing records.
-- Chenpi quality-testing records.
-- Chinese yam powder MES production records.
-
-Batch-linkage information is handled through the authorized local analysis-ready datasets and should not be committed to GitHub.
-
-These files contain confidential real-world manufacturing, quality-control, MES, and batch-traceability records. External data access may be requested from the authors and is subject to company approval, confidentiality review, institutional permission, and applicable data-use agreements.
+No raw or standardized manufacturing dataset is included. Obtain any needed de-identified inputs only through approved author/company access arrangements. Prefer a separate staging directory outside this Git repository. See `../docs/INPUT_CONTRACT.md` for field names and original staging contracts. Batch-level predictions, relationship keys and model objects must also remain private. Do not commit the local Word delivery package or its figures here.

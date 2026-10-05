@@ -1,4 +1,7 @@
+numpy
 pandas
 openpyxl
 PyMuPDF
 Pillow
+
+# numpy, pandas and openpyxl support the current audits; PyMuPDF and Pillow retain the historical environment requirements.

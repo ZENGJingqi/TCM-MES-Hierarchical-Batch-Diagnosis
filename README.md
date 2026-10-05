@@ -1,86 +1,46 @@
-# TCM-MES Hierarchical Batch Diagnosis
+# MES-linked batch digital twins for TCM manufacturing quality assessment
 
-Analysis-code repository for a manufacturing-execution-system (MES)-enabled hierarchical batch diagnosis framework for real-world traditional Chinese medicine (TCM) manufacturing.
+Analysis-code repository for MES-linked traditional Chinese medicine (TCM) manufacturing records. The current workflow reconstructs historical batch objects, compares recent quality-history updating with additional process information, and examines temporal applicability and shared upstream sources.
 
-This repository documents the data-analysis and modeling workflow used to organize quality-control records, MES production records, upstream material-quality records, process-material records, and batch-linkage information into an issue-driven diagnostic evidence chain. It is a code-only release. Raw and standardized manufacturing datasets are not included because they contain company-confidential production, quality-control, MES, and batch-traceability information.
+The associated study is in preparation. This repository is not a published article, a deployed manufacturing platform, a validated physical simulator, or evidence of closed-loop production benefit.
 
-> The associated study is in preparation. Please do not cite this repository as a published study.
+## Current workflow
 
-## Framework overview
-
-The workflow starts from a finished-product quality issue, links downstream quality records to MES production batches, traces related records to upstream material and process-material layers, evaluates layer-wise evidence, adjusts for temporal-window effects, and generates graph-based upstream investigation priorities.
-
-![Framework design](assets/framework_design.svg)
-
-## Repository scope
-
-Included:
-
-- Analysis scripts for dataset overview, layer-wise description, association screening, hierarchical modeling, temporal analysis, confounding-aware decomposition, and graph-based evidence scoring.
-- A public framework diagram that explains the analytical design.
-
-Not included:
-
-- Raw manufacturing data.
-- Standardized analysis-ready datasets.
-- Company-confidential batch-level outputs.
-- Draft documents or unpublished result tables.
-- Document-generation utilities or writing-assistance materials.
+1. Preserve finished-product QC records, MES process records and many-to-many upstream source relationships at their own analytical grains.
+2. Construct batch-level outcomes and retain original QC observation dates separately from MES production dates.
+3. Evaluate frozen-window predictions and daily updating under assumed 0- and 14-day label delays. Actual QC signoff and process-completion timestamps are not established by this workflow.
+4. Separate information-update frequency from process-feature increments using recent means, residual-intercept controls, MES residual elastic nets and a bounded shallow-tree comparison.
+5. Examine 30-, 60- and 90-day recent-history baselines without choosing an optimal duration or refitting every process model at each duration.
+6. Inspect historical-error intervals, training-range review flags and restricted wrong-match stress tests.
+7. Review cohort representativeness, temporal composition and dependence from shared upstream source batches.
 
 ## Repository structure
 
-- `analysis/00_dataset_overview`: dataset dictionary and batch-linkage overview scripts.
-- `analysis/01_finished_product_issue`: finished-product quality description and issue-definition scripts.
-- `analysis/02_tablet_mes_description`: finished-product MES descriptive-analysis scripts.
-- `analysis/03_tablet_mes_association`: finished-product MES association-screening scripts.
-- `analysis/04_extract_powder_description`: Jianwei Xiaoshi extract-powder quality descriptive-analysis scripts.
-- `analysis/05_extract_powder_association`: extract-powder and finished-product issue-linkage scripts.
-- `analysis/06_chenpi_description_and_association`: Chenpi quality, source-code comparison, and downstream-linkage scripts.
-- `analysis/07_yam_powder_description`: Chinese yam powder MES descriptive-analysis scripts.
-- `analysis/08_yam_powder_association`: Chinese yam powder MES and downstream issue-linkage scripts.
-- `analysis/10_joint_modeling`: hierarchical joint-modeling and robustness scripts.
-- `analysis/11_temporal_analysis`: temporal-pattern and abnormal-window assessment scripts.
-- `analysis/12_confounding_aware_analysis`: confounding-aware path-decomposition scripts.
-- `analysis/13_graph_evidence_scoring`: graph-based batch evidence scoring scripts.
-- `assets/framework_design.svg`: public framework-design figure.
-- `data/README.md`: local data placement and confidentiality note.
+- `analysis/current_project/`: current computational source with original relative folder structure.
+- `docs/CURRENT_CODE_MANIFEST.md`: current source-file inventory.
+- `docs/CURRENT_CODE_MANIFEST.json`: exact SHA-256 values of the released computational scripts.
+- `docs/CURRENT_METHODS.md`: endpoints, information rules and interpretation boundaries.
+- `docs/INPUT_CONTRACT.md`: authorized local inputs and staging requirements.
+- `RUNNING.md`: current execution entry points and validation status.
+- `data/README.md`: confidentiality and local-input placement.
+- `analysis/00_dataset_overview` through `analysis/13_graph_evidence_scoring`: preserved historical diagnosis modules.
+- `docs/HISTORICAL_WORKFLOW.md` and `docs/HISTORICAL_RUNNING.md`: prior repository documentation preserved for reference.
+- `assets/framework_design.svg`: unchanged historical diagnosis diagram, not the current manuscript Figure 1.
 
-## Analysis design
+## Release scope
 
-The analysis is organized around an issue-driven diagnostic logic:
+This remains a code-only release. It excludes company-confidential raw and standardized datasets, batch identifiers and mappings, fitted objects, saved individual predictions, generated result tables, manuscript drafts, presentation files and manuscript figures. There is no synthetic dataset presented as an industrial result.
 
-1. Define a finished-product quality issue as the diagnostic entry point.
-2. Link finished-product quality records to MES production records.
-3. Trace related batches to upstream material and process-material layers.
-4. Screen candidate process and material-quality signals within each layer.
-5. Evaluate diagnostic gain from hierarchical data integration.
-6. Account for temporal-window effects and batch-level confounding.
-7. Convert multi-layer evidence into graph-based upstream risk-priority outputs.
+The original computational scripts retain cohort checks and study-specific staging requirements. They are inspectable source, not a data-free one-command reproduction package. Authorized input data and earlier derived inputs are required to rerun the analyses. Publication of source does not imply that all protected project files are public.
 
-## Methods implemented
+## Interpretation boundaries
 
-- Data dictionary construction and variable-level completeness summaries.
-- Batch-linkage and traceability summaries.
-- Layer-wise descriptive statistics.
-- Spearman correlation and Wilcoxon rank-sum testing.
-- Benjamini-Hochberg false-discovery-rate correction.
-- Elastic-net hierarchical diagnostic modeling.
-- XGBoost-SHAP nonlinear sensitivity analysis.
-- Temporal-window analysis and blocked validation.
-- Confounding-aware path decomposition.
-- Bootstrap batch-level robustness checks.
-- Graph-based batch evidence scoring.
+The evaluation is retrospective and internal. All temporal windows have previously been reviewed; the latest window is not an untouched external validation. Updates can have conditional value, but the source code does not establish stable superiority of process-feature or material-fusion models. Nominal interval levels are not coverage guarantees; range-review flags are not confirmed process faults; wrong-match repeats are not an exact permutation test; source associations are not causal effects. Live deployment and actual human-feedback benefits are outside the validated scope.
 
 ## Data availability
 
-No raw or standardized data files are included in this repository.
+No manufacturing data are distributed here. Any request for necessary de-identified inputs is subject to author and company approval, institutional permission, confidentiality review and an appropriate data-use agreement. This update does not promise that access will be granted.
 
-Researchers who need to evaluate or rerun the full analysis may request access to de-identified or necessary analysis-ready data from the corresponding author. Access is subject to company approval, institutional permission, confidentiality review, and an appropriate data-use agreement.
+## Citation and reuse
 
-## Reuse notes
-
-The scripts are designed as a transparent workflow template. Users with authorized local data access should update input paths and variable dictionaries according to their own data structure before running the analysis.
-
-## How to cite
-
-Citation information will be added after study publication.
+Publication citation information will be added after publication. No new license or data-sharing permission is granted by this repository update. See `RUNNING.md` before using any script.

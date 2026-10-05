@@ -1,5 +1,11 @@
 # Code manifest
 
+Current workflow: [current manifest](docs/CURRENT_CODE_MANIFEST.md).
+
+The inventory below is the preserved historical diagnostic workflow, not the current manuscript result set.
+
+# Code manifest
+
 ## Dataset overview
 
 - `analysis/00_dataset_overview/code/create_dataset_overview_dictionary.py`: creates dataset-level summaries and variable dictionaries.
