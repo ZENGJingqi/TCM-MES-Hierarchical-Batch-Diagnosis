@@ -24,6 +24,22 @@ docs/*.docx
 *.tif
 *.tiff
 *.pptx
+*.rda
+*.RDS
+*.Rdata
+*.doc
+*.ppt
+*.zip
+*.sqlite
+*.sqlite3
+*.db
+
+# Credentials and runtime dependencies
+.env
+.env.*
+credentials.json
+*private_key*
+node_modules/
 
 # Python
 __pycache__/

@@ -1,2 +1,5 @@
 # Preserve computational source bytes so public SHA-256 matches the local source manifest.
 analysis/current_project/** -text
+plotting/** -text
+tools/** -text
+tests/** -text

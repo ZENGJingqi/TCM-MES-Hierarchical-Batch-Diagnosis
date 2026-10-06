@@ -18,6 +18,17 @@ October computational tests read original frozen predictions and frozen residual
 
 Python audit scripts preserve their original project-relative input paths. Reconstruct those folders under `analysis/current_project/` only with authorized private files; keep every generated data file ignored. Read each `source_files` declaration before running. Original study cohort assertions are intentional and should not be removed to manufacture a passing run.
 
+## Frozen statistical panel objects
+
+The plotting entry takes a directory containing the following authorized objects, without a private project-root assumption:
+
+- A-C objects for Figure 2, Figure 3 and Figure S4.
+- A-D objects for Figure 4, Figure 5, Figure S1 and Figure S5.
+- A-B objects for Figure 6, Figure S2, Figure S6, Figure S7 and Figure S8.
+- One unlettered object, `Figure_S3/Figure_S3.rds`.
+
+Each object is in its figure directory and repeats that prefix (for example, `Figure_S4/Figure_S4_C.rds`). These 36 objects retain data and styling; do not treat them as non-sensitive presentation files. They are not distributed. The assembler alone cannot recreate numerical panels from absent measurements. Only trusted authorized serialized objects should be loaded. Figure 1 is outside this contract.
+
 ## Known preprocessing conventions
 
 The previously identified milling material-balance entry has already been corrected in the finalized source while retaining its batch. Microbial values reported below 10 are encoded as 10 according to the author's convention; reporting-limit limitations remain. Neither convention licenses a general deletion or median replacement of all extreme measurements.

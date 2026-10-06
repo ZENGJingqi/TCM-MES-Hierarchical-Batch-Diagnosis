@@ -6,6 +6,32 @@ The original analyses used R 4.5.1 and Python scientific packages. Required R pa
 
 For the October 5 update, all released R files are syntax-parsed and Python files are parsed without executing data analysis. Source hashes are checked against the local project. No model fitting or end-to-end rerun was performed for the publication update. Missing protected inputs should produce an error, not simulated results.
 
+The October 6 update rechecks the seventeen unchanged current analysis sources and adds a portable plotting entry and data-free release checks. These checks are not a statistical validation or an end-to-end reproduction of private analyses.
+
+## Data-free checks
+
+Run from the repository root, with Python and Git on PATH:
+
+```sh
+python -m unittest discover -s tests -v
+python tools/verify_release.py
+python tools/verify_release.py --index
+Rscript plotting/reproduce_figures.R --help
+```
+
+The default release check inspects tracked working-tree files. `--index` checks the exact Git-index blobs, including source hashes, permitted file types, Python syntax and potential token-bearing strings. Untracked files are not included. The manifest covers seventeen original analysis scripts and three supporting scripts. R syntax is checked separately with `parse(..., encoding="UTF-8")`; neither parsing nor these tests fits a model. The credential-pattern check is a safeguard, not an anonymity guarantee or a substitute for reviewing a staged diff.
+
+## Statistical figure assembly
+
+```sh
+Rscript plotting/reproduce_figures.R --check-inputs /authorized/panels
+Rscript plotting/reproduce_figures.R /authorized/panels /new/private/output
+```
+
+The panel directory must contain the 36 frozen objects named in `docs/INPUT_CONTRACT.md`. Check-only mode verifies file presence without loading objects or writing outputs. Rendering requires `ggplot2`, `patchwork` (with `free()`), `pdftools`, Cairo support and the original fonts. It exports 13 PDF/PNG pairs at 300 dpi by default and refuses an existing output directory. An optional third argument sets PNG dpi; low-resolution output is for previews, not submission. Canvas sizes and composition are preserved from the reviewed local assembler. Inspect every new export visually, as R/package/font versions can affect rendering. Objects are trusted local serialized inputs, not public data; this is not a data-free figure reconstruction.
+
+This update does not regenerate or replace manuscript figures. Figure 1 and manuscript/Supplementary Information production are deliberately excluded.
+
 ## Execution entry points
 
 Let `CODE=analysis/current_project/03_当前研究_数字孪生/02_分析代码` and let `<stage>` be a separate authorized local staging directory, outside this repository. Use a fresh stage and fresh output directory for each run. Generated outputs must remain untracked.

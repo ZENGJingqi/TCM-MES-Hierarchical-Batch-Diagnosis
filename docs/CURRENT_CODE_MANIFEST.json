@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-05",
+  "version": "2026-10-06",
   "scripts": [
     {
       "source": "03_当前研究_数字孪生/02_分析代码/重分析_20260820/run_full_reanalysis.R",
@@ -102,6 +102,25 @@
       "released": "analysis/current_project/03_当前研究_数字孪生/02_分析代码/重分析_20260823/run_p1_upstream_robustness.R",
       "sha256": "9c1d108ef1998e578ce0f9db6c131bbd1552254830ba415e9978aba44718b008",
       "copy": "byte-identical to local analysis code"
+    }
+  ],
+  "supporting_scripts": [
+    {
+      "released": "plotting/reproduce_figures.R",
+      "source": "03_当前研究_数字孪生/02_分析代码/当前图件与Word同步_20261005/reproduce_figures.R",
+      "source_sha256": "1a6cbec5b1cc1e01536a93db36e829a902240355cd539f03c9234bd368b18ed1",
+      "sha256": "8655b1986c82c19b2f902f0a823daa21e5c0024d3f2e3e621aca3286106bc7f6",
+      "copy": "adapted I/O, unchanged figure layout expressions/dimensions; no data"
+    },
+    {
+      "released": "tools/verify_release.py",
+      "sha256": "85d9c60c87f639cfec6700a88e2ff21b21dc1f8ec40b321f4078243c0fd9d21c",
+      "copy": "new data-free release verification utility"
+    },
+    {
+      "released": "tests/test_verify_release.py",
+      "sha256": "72a0048a720a713d5c61f53179db2a083d84eb8b296b1ffa64d446e0e0c6490c",
+      "copy": "new data-free release verification utility"
     }
   ]
 }
