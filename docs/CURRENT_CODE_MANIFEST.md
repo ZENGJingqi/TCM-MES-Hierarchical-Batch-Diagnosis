@@ -1,6 +1,14 @@
-# Current batch digital twin code manifest
+# Current batch reconstruction and information-value code manifest
 
 Seventeen computational source files are copied byte-for-byte from the current project, with source identity rechecked on October 6. No models were refitted for this repository update.
+
+The October 14 update adds the additional QC-history comparisons below. The earlier seventeen scripts remain unchanged; the JSON manifest records separate added-module provenance and all current source hashes.
+
+- `analysis/information_value_20261012/analysis.R`: byte-identical reviewed fitter.
+- `analysis/information_value_20261012/verify.py`: byte-identical independent numerical checks and summaries.
+- `analysis/information_value_20261012/prepare.py`: original reconciliation/sorting with explicit private-study input and external-output guards.
+- `analysis/information_value_20261012/run.py`: portable private prepare/fit/audit entry.
+- `tests/test_information_value_cli.py`: four data-free path-guard tests.
 
 - `analysis/current_project/03_当前研究_数字孪生/02_分析代码/重分析_20260820/run_full_reanalysis.R`
 - `analysis/current_project/03_当前研究_数字孪生/02_分析代码/NC平台前分析_20260827/01_module_A_digital_thread_audit.R`

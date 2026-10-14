@@ -1,5 +1,12 @@
 # Change log
 
+## 2026-10-14
+
+- Added full-QC history, fixed-weight EWMA, matched full-QC residual comparisons and independent verification source. The R fitter and Python verifier match the reviewed local sources without computational edits.
+- Added a private-input staging adapter, explicit prepare/fit/audit entry points and four data-free path-guard tests.
+- Updated the repository framing, code-citation instructions, input contract and source manifest. The study remains unpublished and all evidence retrospective/internal.
+- Enterprise data, batch mappings, saved predictions, fitted objects, numerical attachments, manuscript text and figures remain excluded. Local preparation/audit replay is not a clean-machine full refit or external validation.
+
 ## 2026-10-06
 
 - Rechecked all seventeen current analysis scripts against local originals; no computational source or fitted result changed.

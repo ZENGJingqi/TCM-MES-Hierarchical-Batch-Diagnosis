@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-06",
+  "version": "2026-10-14",
   "scripts": [
     {
       "source": "03_当前研究_数字孪生/02_分析代码/重分析_20260820/run_full_reanalysis.R",
@@ -102,6 +102,31 @@
       "released": "analysis/current_project/03_当前研究_数字孪生/02_分析代码/重分析_20260823/run_p1_upstream_robustness.R",
       "sha256": "9c1d108ef1998e578ce0f9db6c131bbd1552254830ba415e9978aba44718b008",
       "copy": "byte-identical to local analysis code"
+    },
+    {
+      "released": "analysis/information_value_20261012/analysis.R",
+      "sha256": "5c595507f3c3853f2aa6f6465aa07a55f6c5f0166a40f00eb19b34cb6ee4cf26",
+      "source": "03_当前研究_数字孪生/02_分析代码/信息价值评价补强_20261012/analysis.R",
+      "source_sha256": "5c595507f3c3853f2aa6f6465aa07a55f6c5f0166a40f00eb19b34cb6ee4cf26",
+      "copy": "byte-identical reviewed analytical source"
+    },
+    {
+      "released": "analysis/information_value_20261012/verify.py",
+      "sha256": "cd6b50a70118c2b204e4e3563a264a167505a818a0810d5d483e8fbac94fae89",
+      "source": "03_当前研究_数字孪生/02_分析代码/信息价值评价补强_20261012/verify.py",
+      "source_sha256": "cd6b50a70118c2b204e4e3563a264a167505a818a0810d5d483e8fbac94fae89",
+      "copy": "byte-identical reviewed analytical source"
+    },
+    {
+      "released": "analysis/information_value_20261012/prepare.py",
+      "sha256": "3a0451225c1e20280d69bba0762659ca5b00bcdf63e5cce3c425ca218e411e25",
+      "source_sha256": "3e247178d1a33edf0256c67382d40f0008a9027cf2c36fb4ab8e845a7acca741",
+      "copy": "explicit input root/output guard; unchanged reconciliation, sorting and cohort assertions"
+    },
+    {
+      "released": "analysis/information_value_20261012/run.py",
+      "sha256": "895071f7a4e487b15d98f4423e95cc941290eb6ec7f41ab245c511e8015ab470",
+      "copy": "portable private-input prepare/fit/audit entry"
     }
   ],
   "supporting_scripts": [
@@ -121,6 +146,11 @@
       "released": "tests/test_verify_release.py",
       "sha256": "72a0048a720a713d5c61f53179db2a083d84eb8b296b1ffa64d446e0e0c6490c",
       "copy": "new data-free release verification utility"
+    },
+    {
+      "released": "tests/test_information_value_cli.py",
+      "sha256": "b2b8d203efcad4e94b0ce7e95967c76c01440a9d2d5be74f9e6d6f7c78207261",
+      "copy": "four data-free path-guard tests"
     }
   ]
 }

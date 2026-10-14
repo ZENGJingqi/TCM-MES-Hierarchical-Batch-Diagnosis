@@ -1,5 +1,9 @@
 # Current methods and evidence boundaries
 
+The later information-value module compares linked and full-QC history pools, 60-day means and fixed-weight EWMA (0.2), frozen and daily updates, and both assumed label delays. Full-QC MES residual correction is compared with a same-training-sample residual intercept at matched cutoffs and updating frequencies. The added inner cuts are floored to calendar days while changing the history pool; this is not a pure pool ablation. Additional intervals use 2,000 fixed-prediction month-bootstrap draws, seed 20261012. Original intervals remain separate. Pooled summaries, individual windows, first-window omission and equal-window aggregation must all be retained.
+
+The independent verifier checks eligible history memberships, recursive reference values, predictions reconstructed from new-model coefficients and saved assessment identities/cutoffs. Repeated assessment rows are not independent batches or factory incidents. Unknown QC signoff, process completion, MES writing and upstream measurement availability remain unknown. The full QC pool includes batches without MES production dates. Audit success does not resolve those limitations or recover the original daily fitted weights.
+
 The primary displayed endpoint is continuous batch-mean disintegration time. A separate secondary event records whether any QC record exceeds 10 minutes; it is not a batch-release failure definition. Batch, QC-record, source-batch and relationship-row counts are different grains and are not additive sample sizes.
 
 At a scoring cutoff, both production date and assumed label-availability date must precede the cutoff strictly. Assumed availability is QC observation date plus 0 or 14 days, not a verified signoff time. QC observations earlier than MES production are excluded from historical training eligibility rather than silently treated as future production evidence. Same-day labels are unavailable to scoring batches.

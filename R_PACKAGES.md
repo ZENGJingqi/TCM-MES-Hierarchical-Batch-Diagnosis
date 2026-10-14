@@ -5,6 +5,8 @@ Current computational-source package imports (R 4.5.1 in the original local anal
 - `dplyr`
 - `ggplot2`
 - `glmnet`
+- `jsonlite`
+- `digest`
 - `lubridate`
 - `pROC`
 - `patchwork`

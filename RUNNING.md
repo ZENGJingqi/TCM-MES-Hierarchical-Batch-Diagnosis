@@ -8,6 +8,8 @@ For the October 5 update, all released R files are syntax-parsed and Python file
 
 The October 6 update rechecks the seventeen unchanged current analysis sources and adds a portable plotting entry and data-free release checks. These checks are not a statistical validation or an end-to-end reproduction of private analyses.
 
+The October 14 code-only update adds `analysis/information_value_20261012/`. Its R fitter and Python numerical verifier match the reviewed local sources byte for byte. The staging adapter accepts an authorized study directory, and all generated outputs must stay outside this repository. See that module's README for `prepare`, `fit` and `audit` commands. Publication checks parse source and test path guards; an authorized local staging/audit replay is distinct from a full fresh fit or clean-machine validation.
+
 ## Data-free checks
 
 Run from the repository root, with Python and Git on PATH:
@@ -19,7 +21,7 @@ python tools/verify_release.py --index
 Rscript plotting/reproduce_figures.R --help
 ```
 
-The default release check inspects tracked working-tree files. `--index` checks the exact Git-index blobs, including source hashes, permitted file types, Python syntax and potential token-bearing strings. Untracked files are not included. The manifest covers seventeen original analysis scripts and three supporting scripts. R syntax is checked separately with `parse(..., encoding="UTF-8")`; neither parsing nor these tests fits a model. The credential-pattern check is a safeguard, not an anonymity guarantee or a substitute for reviewing a staged diff.
+The default release check inspects tracked working-tree files. `--index` checks the exact Git-index blobs, including source hashes, permitted file types, Python syntax and potential token-bearing strings. Untracked files are not included. The manifest now covers the original seventeen analysis scripts, the additional information-value module and release-support scripts. R syntax is checked separately with `parse(..., encoding="UTF-8")`; neither parsing nor these tests fits a model. The credential-pattern check is a safeguard, not an anonymity guarantee or a substitute for reviewing a staged diff.
 
 ## Statistical figure assembly
 

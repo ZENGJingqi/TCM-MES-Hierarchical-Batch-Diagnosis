@@ -32,3 +32,19 @@ Each object is in its figure directory and repeats that prefix (for example, `Fi
 ## Known preprocessing conventions
 
 The previously identified milling material-balance entry has already been corrected in the finalized source while retaining its batch. Microbial values reported below 10 are encoded as 10 according to the author's convention; reporting-limit limitations remain. Neither convention licenses a general deletion or median replacement of all extreme measurements.
+
+## Additional full-QC and EWMA module
+
+`analysis/information_value_20261012/run.py prepare` takes `--study-root` explicitly. This root is an authorized private copy of the current study, not this public repository. It reads:
+
+- `01_定稿数据/定稿数据_英文/D2_finished_product_physchem_final.xlsx`
+- `01_定稿数据/定稿数据_英文/D3_finished_product_mes_main_final.xlsx`
+- `03_分析结果与论文图/tables/03_joint_model_matrix.csv`
+- `03_分析结果与论文图/计算验证扩展_20261001/01_predictions.csv`
+- `03_分析结果与论文图/计算验证扩展_20261001/03_fit_audit.csv`
+- `02_分析代码/时期与批次信息分解_20260930/analysis.R`
+- `02_分析代码/信息价值评价补强_20261012/README.md`, the fixed private analysis protocol.
+
+The protocol SHA-256 used in the reviewed run is `4d6bbb9cef5ba027a5d06f3eddee2899b3b806eee4fb01bd62621638507f0184`. A source hash records identity, not ethical approval or actual data availability. Staging writes `qc_pool.csv`, `joint.csv`, `legacy_predictions.csv`, `legacy_fit.csv`, `v4_helpers.R`, `00_input_QA.json` and a private batch mapping. These outputs must remain outside this repository and must not be uploaded. Preparation retains the study's cohort and endpoint assertions. It neither anonymizes the complete enterprise data nor invents absent timestamps.
+
+`fit` requires a prepared stage and a nonexistent `output` directory. `audit` reads saved fitter outputs, including histories/members, fitted coefficients/preprocessing, training memberships and the original fit audit; it writes verification and aggregate summaries in the same private stage. Work on a copy for a preserved run. The module README describes the actual cutoff assumptions and residual inner-calendar refinement.
